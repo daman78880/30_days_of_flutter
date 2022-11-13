@@ -1,4 +1,5 @@
-import 'package:first_project/home_page.dart';
+import 'package:first_project/screens/home_page.dart';
+import 'package:first_project/screens/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -11,7 +12,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:HomePage()
+          themeMode:ThemeMode.light,
+          // only for without theme apply color
+          theme: ThemeData(primarySwatch: Colors.orange),
+      // for theme apply with switch working of color then we use this
+      darkTheme: ThemeData(
+        primarySwatch: Colors.green,
+        brightness: Brightness.dark
+      ),
+      initialRoute: "/login",
+      routes: {
+        "/":(context)=> HomePage(),
+        "/login":(context)=>LoginPage()
+      },
     );
   }
 }
